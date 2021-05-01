@@ -1,0 +1,66 @@
+0.008593639358878136
+== grad profiles:
+ ---------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                       Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg    # of Calls  
+---------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+    NativeLayerNormBackward        14.94%     100.331us       100.00%     671.675us     671.675us             1  
+                  aten::mul        25.94%     174.252us        32.20%     216.253us      13.516us            16  
+                  aten::sum        11.26%      75.629us        20.04%     134.588us      33.647us             4  
+              aten::reshape         8.23%      55.246us        16.21%     108.866us      13.608us             8  
+           aten::reshape_as         2.67%      17.904us         8.44%      56.704us      18.901us             3  
+                 aten::view         7.98%      53.620us         7.98%      53.620us       6.703us             8  
+                   aten::to         2.70%      18.159us         6.25%      42.001us      21.000us             2  
+                  aten::sub         4.50%      30.234us         4.50%      30.234us      10.078us             3  
+                  aten::neg         2.63%      17.635us         4.38%      29.434us      14.717us             2  
+           aten::unsqueeze_         2.60%      17.435us         3.81%      25.580us      12.790us             2  
+                aten::empty         3.41%      22.872us         3.41%      22.872us       4.574us             5  
+                aten::fill_         3.12%      20.930us         3.12%      20.930us       5.233us             4  
+           aten::as_strided         2.88%      19.330us         2.88%      19.330us       4.832us             4  
+                  aten::add         2.40%      16.111us         2.40%      16.111us       8.055us             2  
+                aten::copy_         2.02%      13.547us         2.02%      13.547us       6.774us             2  
+        aten::empty_strided         1.53%      10.295us         1.53%      10.295us       5.148us             2  
+          aten::as_strided_         1.21%       8.145us         1.21%       8.145us       4.072us             2  
+---------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 671.675us
+
+== gradgrad profiles: ---------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                       Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg    # of Calls  
+---------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+    NativeLayerNormBackward         5.52%      86.799us        47.15%     741.569us     741.569us             1  
+                  aten::mul        21.30%     335.058us        29.78%     468.359us       9.965us            47  
+               MulBackward0         5.81%      91.424us        21.31%     335.225us      27.935us            12  
+                  aten::sum         7.12%     112.008us        13.59%     213.797us      21.380us            10  
+                   aten::to         4.54%      71.359us        11.51%     181.102us      16.464us            11  
+               SubBackward0         0.64%      10.101us         8.34%     131.112us      65.556us             2  
+              aten::reshape         3.88%      61.009us         7.73%     121.665us      10.139us            12  
+                 aten::conj         7.46%     117.306us         7.46%     117.306us       4.888us            24  
+                  aten::neg         4.07%      63.966us         6.92%     108.784us      13.598us             8  
+                 aten::view         4.62%      72.641us         4.62%      72.641us       5.189us            14  
+                  aten::add         4.50%      70.830us         4.50%      70.830us       6.439us            11  
+               MulBackward2         0.56%       8.835us         4.27%      67.170us      33.585us             2  
+                  aten::sub         2.94%      46.202us         4.04%      63.533us      12.707us             5  
+               ViewBackward         0.71%      11.201us         3.94%      61.928us      15.482us             4  
+                 aten::mean         0.73%      11.513us         3.81%      59.899us      59.899us             1  
+                aten::copy_         3.80%      59.795us         3.80%      59.795us       5.436us            11  
+                aten::empty         3.78%      59.401us         3.78%      59.401us       3.960us            15  
+        aten::empty_strided         3.18%      49.948us         3.18%      49.948us       4.541us            11  
+                aten::fill_         3.15%      49.598us         3.15%      49.598us       4.960us            10  
+           aten::reshape_as         0.90%      14.173us         2.72%      42.775us      14.258us             3  
+           aten::as_strided         2.12%      33.399us         2.12%      33.399us       4.175us             8  
+                 aten::div_         1.05%      16.547us         2.07%      32.552us      32.552us             1  
+               SumBackward1         0.33%       5.158us         2.01%      31.569us      31.569us             1  
+            aten::clamp_min         1.19%      18.647us         1.96%      30.767us      15.384us             2  
+                  aten::div         0.95%      14.937us         1.87%      29.402us      29.402us             1  
+               aten::expand         1.00%      15.746us         1.57%      24.651us      12.325us             2  
+           aten::unsqueeze_         0.83%      13.073us         1.33%      20.924us      10.462us             2  
+                NegBackward         0.12%       1.928us         1.28%      20.161us      20.161us             1  
+         UnsqueezeBackward1         0.22%       3.416us         1.24%      19.516us      19.516us             1  
+              aten::squeeze         0.71%      11.200us         1.02%      16.100us      16.100us             1  
+            aten::unsqueeze         0.59%       9.347us         0.85%      13.414us      13.414us             1  
+          aten::reciprocal_         0.58%       9.069us         0.58%       9.069us       9.069us             1  
+          aten::as_strided_         0.50%       7.851us         0.50%       7.851us       3.926us             2  
+                 aten::add_         0.47%       7.322us         0.47%       7.322us       7.322us             1  
+               AddBackward0         0.14%       2.143us         0.14%       2.143us       1.071us             2  
+---------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 1.573ms
+
